@@ -1,0 +1,19 @@
+// Place all the styles related to the dailyforms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#dailyform {
+    .dailyform__date-picker {
+      font-size: 1.4rem;
+      margin-top: 1.6rem;
+  
+      .dailyform__date {
+        display: inline-block;
+        text-align: center;
+        width: 9rem;
+      }
+      .toggle {
+        display: inline-block;
+      }
+    }
+  }

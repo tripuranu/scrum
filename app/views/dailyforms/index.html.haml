@@ -1,0 +1,27 @@
+%h1 Listing dailyforms
+
+%table
+  %thead
+    %tr
+      %th Date
+      %th Yesterday
+      %th Today
+      %th Blockage
+      %th
+      %th
+      %th
+
+  %tbody
+    - @dailyforms.each do |dailyform|
+      %tr
+        %td= dailyform.date
+        %td= dailyform.yesterday
+        %td= dailyform.today
+        %td= dailyform.blockage
+        %td= link_to 'Show', dailyform
+        %td= link_to 'Edit', edit_dailyform_path(dailyform)
+        %td= link_to 'Destroy', dailyform, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Dailyform', new_dailyform_path

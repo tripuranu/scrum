@@ -1,0 +1,142 @@
+#calendar .simple-calendar,
+#calendar-index .simple-calendar {
+    position:absolute;
+    top: 110px;
+    width: 40%;
+    margin-left: 750px;
+    font-family: Roboto, sans-serif;
+  }
+  #calendar {
+    display:none;
+  }
+
+  #calendar-index .simple-calendar{
+    margin-left: 350px;
+    width: 50%;
+  }
+  
+  
+  #calendar .simple-calendar .calendar-heading,
+  #calendar-index .simple-calendar .calendar-heading {
+    height:100px;
+    background-color: #17a2b8;
+    color: #FFF;
+    padding: 30px 0;
+  }
+
+  #calendar .simple-calendar .calendar-heading a,
+  #calendar-index .simple-calendar .calendar-heading a {
+    font-size: 30px;
+    background-color: #17a2b8;
+    color: #FFF;
+    padding: 30px 0;
+  }
+
+  #calendar .simple-calendar .calendar-heading a:hover,
+  #calendar .simple-calendar .calendar-heading a:hover  {
+    text-decoration: none;
+  }
+
+  #calendar table,
+  #calendar-index table {
+    border: 1px solid #cbcfd1
+  }
+
+  #calendar td,
+  #calendar th,
+  #calendar-index td,
+  #calendar-index th {
+    font-size: 10px;
+    padding: 20px;
+  }
+ 
+  #calendar td a:hover,
+  #calendar-index td a:hover {
+    text-decoration: none;
+  }
+  
+  #calendar .calendar-heading,
+  #calendar-index .calendar-heading {
+    text-align: center;
+    font-size: 25px;
+  }
+
+  #calendar th,
+  #calendar-index th {
+    color: #17a2b8;
+    text-align: center;
+    text-transform:uppercase;
+  }
+  
+  #calendar td,
+  #calendar td a,
+  #calendar-index td,
+  #calendar-index td a {
+    background: #FFF;
+    color: #d6d4d6;
+    height: 60px;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  
+  #calendar .today,
+  #calendar .today a,
+  #calendar-index .today,
+  #calendar-index .today a  {
+    background-color: #17a2b8;
+    color: #FFF;
+  }
+
+  #calendar .prev-month,
+  #calendar .next-month,
+  #calendar-index .prev-month,
+  #calendar-index .next-month {
+    pointer-events: none;
+  }
+
+  #calendar .current-month,
+  #calendar .current-month a,
+  #calendar-index .current-month,
+  #calendar-index .current-month a{
+    color: black;
+  }
+  textarea{  
+    display: block;
+    box-sizing: padding-box;
+    overflow: hidden;
+  
+    width: 300px;
+    font-size: 14px;
+    margin: 50px auto;
+    border-radius: 6px;
+    box-shadow: 2px 2px 8px rgba(black, .3);
+  }
+
+  .field,
+  .actions {
+    margin-left: 500px;
+  }
+
+  .notification {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background-color:#17a2b8;
+    opacity: 0.85;
+    text-align: center;
+    margin: 0;
+}
+.notice {
+   font-size: 1.75rem;
+   font-weight: 900;
+   color: white;
+}
+
+button,
+button:active,
+button:hover {
+  background-color: transparent;
+  border: 0;
+}

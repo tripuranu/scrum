@@ -40,3 +40,23 @@ function init() {
       });
     });
 };
+
+$(document).ready(function() {
+  $('textarea').on('input', function autosize(){
+    var $this = $(this);
+    $this
+      .css({height: 'auto'})
+      .css({height: $this.prop('scrollHeight')});
+  }); 
+    
+  setTimeout(function(){
+    $('.notification').fadeOut("slow",function(){
+      $(this).remove;
+    })
+  },1000);
+    
+  $('button').click(function() {
+    $('#calendar').toggle();
+  });
+    
+});

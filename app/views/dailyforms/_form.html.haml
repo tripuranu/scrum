@@ -1,0 +1,21 @@
+= form_for @dailyform do |f|
+  - if @dailyform.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@dailyform.errors.count, "error")} prohibited this dailyform from being saved:"
+      %ul
+        - @dailyform.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.hidden_field :date
+  .field
+    = f.label :yesterday
+    = f.text_area :yesterday, rows:'3'
+  .field
+    = f.label :today
+    = f.text_area :today, rows:'3'
+  .field
+    = f.label :blockage
+    = f.text_area :blockage, rows:'2'
+  .actions
+    = f.submit 'Save'
