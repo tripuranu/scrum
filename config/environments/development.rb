@@ -68,4 +68,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   BetterErrors::Middleware.allow_ip! '0.0.0.0/0'
+  #devise
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end

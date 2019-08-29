@@ -16,3 +16,27 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+
+function init() {
+    gapi.load('auth2', function() {
+      $('.google-login').click(function(e) {
+        e.preventDefault();
+        auth2.grantOfflineAccess().then(signInCallback);
+        
+        gapi.auth2.authorize({
+          client_id: '490057858625-uid72gp3vvmj70c81vfn9po81tokn5h5.apps.googleusercontent.com',
+          cookie_policy: 'single_host_origin',
+          scope: 'email profile',
+          domain: 'localhost',
+          response_type: 'code'
+        }, function(response) {
+          if (response && !response.error) {
+            jQuery.ajax({type: 'POST', url: '/auth/google_oauth2/callback', data: response,
+              success: function(data) {
+              }
+            });        
+          }
+        });
+      });
+    });
+};

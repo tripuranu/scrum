@@ -8,4 +8,31 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
+    - if flash[:notice]
+      .notification.is-success.global-notification
+        %p.notice= notice
+    - if flash[:alert]
+      .notification.is-danger.global-notification
+        %p.alert= alert
+    - if user_signed_in? && current_user.email=='tripura.anupama@codeastra.com'
+      %nav.navbar.navbar-expand-sm.bg-info.navbar-dark.text-white.justify-content-end
+        %ul.navbar-nav
+          %li.nav-item.active
+            %a.nav-link{:href => "#"} Admin
+          %li.nav-item.active
+            %a.nav-link{:href => "/users/edit"} Profile
+          %li.nav-item.active
+            %a.nav-link{:href => "/users/sign_out"} Sign Out
+    - elsif user_signed_in? && current_user.email!='tripura.anupama@codeastra.com'
+      %nav.navbar.navbar-expand-sm.bg-info.navbar-dark.text-white.justify-content-end
+        %ul.navbar-nav
+          %li.nav-item.active
+            %a.nav-link{:href => "/users/edit"} Profile
+          %li.nav-item.active
+            %a.nav-link{:href => "/users/sign_out"} Sign Out    
+    - else
+      %nav.navbar.navbar-expand-sm.bg-info.navbar-dark.text-white.justify-content-end
+        %ul.navbar-nav
+          %li.nav-item.active
+            %a.nav-link{:href => "/users/auth/google_oauth2"} Log In
     = yield
