@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :dailyforms
-    root to: "dailyforms#index" 
+    root to: "dailyforms#welcome" 
   end
   
   root to: 'home#dashboard'

@@ -17,8 +17,12 @@
     - if user_signed_in? && current_user.email=='tripura.anupama@codeastra.com'
       %nav.navbar.navbar-expand-sm.bg-info.navbar-dark.text-white.justify-content-end
         %ul.navbar-nav
-          %li.nav-item.active
-            %a.nav-link{:href => "/admin"} Admin
+          %li.nav-item.dropdown.active
+            %a#navbardrop.nav-link.dropdown-toggle{"data-toggle" => "dropdown", :href => "/admin"}
+              Admin
+              .dropdown-menu
+                %a.dropdown-item{:href => "/admin/dailyforms"} Dates
+                %a.dropdown-item{:href => "/admin/dailyforms/new"} Users
           %li.nav-item.active
             %a.nav-link{:href => "/users/edit"} Profile
           %li.nav-item.active
