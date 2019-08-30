@@ -1,0 +1,6 @@
+#calendar-index
+  = month_calendar do |date|
+    - if date.future?
+      = date.day
+    - else
+      = link_to date.day , edit_admin_dailyform_path(date)

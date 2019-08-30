@@ -30,6 +30,7 @@
     background-color: #17a2b8;
     color: #FFF;
     padding: 30px 0;
+    text-decoration: none
   }
 
   #calendar .simple-calendar .calendar-heading a:hover,
@@ -139,4 +140,40 @@ button:active,
 button:hover {
   background-color: transparent;
   border: 0;
+}
+#show h1,
+#index h2 {
+  text-align: center;
+  font-size: 30px;
+}
+#show table, 
+#show th, 
+#show td{
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin-left: 180px;
+  text-align: center;
+}
+#index table, 
+#index th, 
+#index td  {
+  border-collapse: collapse;
+  margin-left: 500px;
+  text-align: center;
+}
+#show th, 
+#show td,
+#index th, 
+#index td  {
+  padding: 5px;
+  width: 300px;
+}
+
+#show th:first-child,
+#show td:first-child{
+  width: 110px;
+}
+#show th:last-child, 
+#show td:last-child {
+  width: 200px;
 }

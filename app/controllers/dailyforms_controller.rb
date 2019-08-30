@@ -1,11 +1,15 @@
 class DailyformsController < ApplicationController
 
-  def show
+  def edit
     @date = Date.parse(params[:id])
     @dailyform = current_user.dailyforms.find_or_initialize_by(date: @date)
     if @dailyform.new_record?
       current_user.dailyforms.build
     end
+  end
+
+  def show
+    @dailyform = Dailyform.find(params[:id])
   end
 
   def index

@@ -1,0 +1,16 @@
+#show
+  %h1= @date.strftime('%b %-d, %Y')
+  %table
+    %thead
+      %tr
+        %th E-Mail
+        %th Yesterday
+        %th Today
+        %th Blockage
+    %tbody
+      - @dailyforms.each do |dailyform|
+        %tr
+          %td= dailyform.user.email
+          %td= dailyform.yesterday
+          %td= dailyform.today
+          %td= dailyform.blockage
