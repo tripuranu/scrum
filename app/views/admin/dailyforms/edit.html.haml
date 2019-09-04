@@ -7,6 +7,7 @@
         %th Yesterday
         %th Today
         %th Blockage
+        %th Comment
     %tbody
       - @dailyforms.each do |dailyform|
         %tr
@@ -14,3 +15,4 @@
           %td= dailyform.yesterday
           %td= dailyform.today
           %td= dailyform.blockage
+          %td= link_to 'comment', admin_dailyform_comment_path(dailyform.id)

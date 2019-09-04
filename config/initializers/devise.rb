@@ -262,8 +262,9 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :google_oauth2, "490057858625-uid72gp3vvmj70c81vfn9po81tokn5h5.apps.googleusercontent.com", "SpAfYejh9ZvhgoIpdTvAQ6Tt", {
     scope: "email,profile",
-    hd: 'codeastra.com'
-}
+    hd: 'codeastra.com', 
+    skip_jwt: true
+  }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
 
-  resources :dailyforms, only: %i[edit show create update]
+  resources :dailyforms, only: %i[edit show create update] do
+    resources :comments
+  end
 
   authenticated :user do
     root :to => "dailyforms#edit", :id => Date.today.to_s, as: :authenticated_root
   end
 
   namespace :admin do
-    resources :dailyforms
-    root to: "dailyforms#welcome" 
+    resources :dailyforms do
+      resources :comments
+    end
   end
   
   root to: 'home#dashboard'

@@ -3,9 +3,7 @@ class DailyformsController < ApplicationController
   def edit
     @date = Date.parse(params[:id])
     @dailyform = current_user.dailyforms.find_or_initialize_by(date: @date)
-    if @dailyform.new_record?
-      current_user.dailyforms.build
-    end
+    @comments = Comment.where(dailyform_id: @dailyform)
   end
 
   def show
@@ -20,7 +18,7 @@ class DailyformsController < ApplicationController
 
     respond_to do |format|
       if @dailyform.save
-        format.html { redirect_to root_path, notice: 'Project was successfully created.' }
+        format.html { redirect_to edit_dailyform_path(@dailyform.date), notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @dailyform }
       else
         format.html { render :new }

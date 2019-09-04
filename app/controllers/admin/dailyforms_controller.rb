@@ -12,6 +12,4 @@ class Admin::DailyformsController < Admin::AdminController
     @date = Date.parse(params[:id])
     @dailyforms = Dailyform.where('date = ?', @date)
   end
-  def welcome
-  end
 end
