@@ -8,6 +8,23 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        if (@dailyform.users).include?(@dailyform.user)
+          ((@dailyform.users.uniq)-[current_user]).each do |user|
+            if @dailyform.comments.count == 1
+              Notification.create(recipient: user, actor: current_user, action: "commented", notifiable: @comment)
+            else
+              Notification.create(recipient: user, actor: current_user, action: "replied", notifiable: @comment)
+            end
+          end
+        else
+          ((@dailyform.users.uniq << @dailyform.user)-[current_user]).each do |user|
+            if @dailyform.comments.count == 1
+              Notification.create(recipient: user, actor: current_user, action: "commented", notifiable: @comment)
+            else
+              Notification.create(recipient: user, actor: current_user, action: "replied", notifiable: @comment)
+            end
+          end
+        end
         format.html { redirect_to edit_dailyform_path(@dailyform.date), notice: 'Commented!' }
         format.json { render :show, status: :created, location: @comment }
       else

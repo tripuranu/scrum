@@ -4,6 +4,12 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :notifications, only: [:index] do
+    collection do
+      get :mark_as_read
+    end
+  end
+
   authenticated :user do
     root :to => "dailyforms#edit", :id => Date.today.to_s, as: :authenticated_root
   end

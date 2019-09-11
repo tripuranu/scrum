@@ -116,7 +116,8 @@
 
   .field,
   .actions,
-  .comments {
+  .comments,
+  .edit_comment {
     margin-left: 500px;
   }
 
@@ -152,14 +153,14 @@ button:hover {
 #show td{
   border: 1px solid black;
   border-collapse: collapse;
-  margin-left: 180px;
+  margin: 0 auto;
   text-align: center;
 }
 #index table, 
 #index th, 
 #index td  {
   border-collapse: collapse;
-  margin-left: 500px;
+  margin: 0 auto;
   text-align: center;
 }
 #show th, 
@@ -177,4 +178,40 @@ button:hover {
 #show th:last-child, 
 #show td:last-child {
   width: 200px;
+}
+
+.pagination {
+  margin: 50px 500px;
+}
+
+.pagination a {
+  padding: 2px 5px 2px 5px;
+  margin: 2px;
+  border: 1px solid #aaaadd;
+  text-decoration: none;
+  color: #000099;
+}
+.pagination a:hover, .pagination a:active {
+  border: 1px solid #000099;
+  color: #000;
+  text-decoration: none;
+}
+.pagination .current {
+  padding: 2px 5px 2px 5px;
+  margin: 2px;
+  border: 1px solid #000099;
+  font-weight: bold;
+  background-color: #000099;
+  color: #FFF;
+}
+.pagination .disabled {
+  padding: 2px 5px 2px 5px;
+  margin: 2px;
+  border: 1px solid #eee;
+  color: #ddd;
+}
+
+.dropdown-menu.notifications.show a {
+  text-decoration: none;
+  color: black;
 }

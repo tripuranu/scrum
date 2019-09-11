@@ -1,0 +1,29 @@
+- @notifications.each do |notification|
+  - if current_user.email!='tripura.anupama@codeastra.com'
+    -if notification.action == "commented"
+      = link_to edit_dailyform_path(notification.notifiable.dailyform.date) do
+        %p
+          = notification.actor.email
+          = notification.action
+          on your dailyform
+    - else
+      = link_to edit_dailyform_path(notification.notifiable.date) do
+        %p
+          = notification.actor.email
+          = notification.action
+          to your
+          = notification.notifiable_type
+  - else
+    -if notification.action == "commented"
+      = link_to admin_dailyform_comment_path(notification.notifiable.dailyform.id, notification.notifiable.id) do
+        %p
+          = notification.actor.email
+          = notification.action
+          on your dailyform
+    - else
+      = link_to admin_dailyform_comment_path(notification.notifiable.dailyform.id, notification.notifiable.id) do
+        %p
+          = notification.actor.email
+          = notification.action
+          to your
+          = notification.notifiable_type

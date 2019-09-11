@@ -9,10 +9,12 @@
         %th Blockage
         %th Comment
     %tbody
-      - @user.dailyforms.order("date DESC").each do |dailyform|
+      - @dailyforms.each do |dailyform|
         %tr
           %td= dailyform.date.strftime('%b %-d, %Y')
           %td= dailyform.yesterday
           %td= dailyform.today
           %td= dailyform.blockage
           %td= link_to 'comment', admin_dailyform_comment_path(dailyform.id)
+
+= will_paginate @dailyforms

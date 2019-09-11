@@ -4,6 +4,8 @@
     %tr
       %th Email
   %tbody
-    - (@users-[current_user]).each do |user|
+    - (@users).each do |user|
       %tr
         %td= link_to user.email, admin_dailyform_path(user.id)
+
+= will_paginate @users

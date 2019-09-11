@@ -1,11 +1,13 @@
 <div class= "comments"
   <p><b>REPLIES</b></p>
   <% @comments.each do |comment| %>
-    <p><b><%= User.where('ID = ?',comment.user_id).pluck(:email).flatten.join('') %>: </b><%= comment.body %></p>
-    <% if current_user.id == comment.user_id%>
-      <%= link_to 'Delete', [comment.dailyform, comment], method: :delete %>
-      <%= link_to 'Edit', edit_dailyform_comment_path(comment.dailyform, comment) %>
-    <% end %>
+    <p>
+      <b><%= User.where('ID = ?',comment.user_id).pluck(:email).flatten.join('') %>: </b><%= comment.body %>
+      <% if current_user.id == comment.user_id%>
+        <%= link_to fa_icon('pencil-square-o'), edit_dailyform_comment_path(comment.dailyform, comment) %>
+        <%= link_to fa_icon('trash'), [comment.dailyform, comment], method: :delete %>
+      <% end %>
+    </p>
   <% end %>
   <%= render 'comments/form' %>
 </div>

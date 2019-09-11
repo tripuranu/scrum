@@ -13,32 +13,33 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery3
+//= require jquery_ujs
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
 
 function init() {
-    gapi.load('auth2', function() {
-      $('.google-login').click(function(e) {
-        e.preventDefault();
-        auth2.grantOfflineAccess().then(signInCallback);
-        
-        gapi.auth2.authorize({
-          client_id: '490057858625-uid72gp3vvmj70c81vfn9po81tokn5h5.apps.googleusercontent.com',
-          cookie_policy: 'single_host_origin',
-          scope: 'email profile',
-          domain: 'localhost',
-          response_type: 'code'
-        }, function(response) {
-          if (response && !response.error) {
-            jQuery.ajax({type: 'POST', url: '/auth/google_oauth2/callback', data: response,
-              success: function(data) {
-              }
-            });        
-          }
-        });
+  gapi.load('auth2', function() {
+    $('.google-login').click(function(e) {
+      e.preventDefault();
+      auth2.grantOfflineAccess().then(signInCallback);
+      
+      gapi.auth2.authorize({
+        client_id: '490057858625-uid72gp3vvmj70c81vfn9po81tokn5h5.apps.googleusercontent.com',
+        cookie_policy: 'single_host_origin',
+        scope: 'email profile',
+        domain: 'localhost',
+        response_type: 'code'
+      }, function(response) {
+        if (response && !response.error) {
+          jQuery.ajax({type: 'POST', url: '/auth/google_oauth2/callback', data: response,
+            success: function(data) {
+            }
+          });        
+        }
       });
     });
+  });
 };
 
 $(document).ready(function() {
@@ -57,6 +58,10 @@ $(document).ready(function() {
     
   $('button').click(function() {
     $('#calendar').toggle();
+  });
+  
+  $('#notifications').click(function() {
+    $.get("/notifications/mark_as_read");
   });
     
 });

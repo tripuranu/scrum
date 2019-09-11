@@ -24,6 +24,7 @@ gem 'devise'
 gem 'omniauth-google-oauth2'
 gem "simple_calendar"
 gem "font-awesome-rails"
+gem 'will_paginate'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

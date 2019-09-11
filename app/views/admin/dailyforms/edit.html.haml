@@ -16,3 +16,5 @@
           %td= dailyform.today
           %td= dailyform.blockage
           %td= link_to 'comment', admin_dailyform_comment_path(dailyform.id)
+
+= will_paginate @dailyforms
