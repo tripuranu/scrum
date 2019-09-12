@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
             end
           end
         end
-        format.html { redirect_to edit_dailyform_path(@dailyform.date), notice: 'Commented!' }
+        format.html { redirect_back fallback_location: root_path, notice: 'Commented!' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
@@ -35,12 +35,12 @@ class CommentsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
     if @comment.update(comment_params)
-      redirect_to edit_dailyform_path(@dailyform.date)
+      flash[:notice] = "Updated"
+      redirect_back fallback_location: root_path  
     else
       render 'edit'
     end
@@ -48,7 +48,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to edit_dailyform_path(@dailyform.date)
+    redirect_back fallback_location: root_path
   end
   private
 

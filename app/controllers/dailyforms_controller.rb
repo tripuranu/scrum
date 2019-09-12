@@ -18,7 +18,7 @@ class DailyformsController < ApplicationController
 
     respond_to do |format|
       if @dailyform.save
-        format.html { redirect_to edit_dailyform_path(@dailyform.date), notice: 'Succesfully saved!'}
+        format.html { redirect_back fallback_location: root_path, notice: 'Succesfully saved!'}
         format.json { render :show, status: :created, location: @dailyform }
       else
         format.html { render :new }
@@ -31,7 +31,7 @@ class DailyformsController < ApplicationController
     @dailyform = current_user.dailyforms.find(params[:id])
     respond_to do |format|
       if @dailyform.update(dailyform_params)
-        format.html { redirect_to edit_dailyform_path(@dailyform.date), notice: 'Succesfully Updated!' }
+        format.html { redirect_back fallback_location: root_path, notice: 'Succesfully Updated!' }
         format.json { render :show, status: :ok, location: @dailyform }
       else
         format.html { render :edit }

@@ -1,14 +1,7 @@
 - disable_tomorrow = date >= Date.today
 .dailyform__date-picker.float-right
   = link_to fa_icon('chevron-left'), edit_dailyform_path(date - 1.day)
-  .dailyform__date
+  .btn
     = date.strftime('%b %-d, %Y')
-  %button.fa.fa-calendar
+    %input#datepicker{ :hidden => true ,:type => "text"}/
   = link_to fa_icon('chevron-right'), (disable_tomorrow ? '' : edit_dailyform_path(date + 1.day)), class: "#{'text-muted disabled' if disable_tomorrow}"
-
-#calendar
-  = month_calendar do |date|
-    - if date.future?
-      = date.day
-    - else
-      = link_to date.day , edit_dailyform_path(date)

@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, :omniauth_providers => [:google_oauth2]
 
   has_many :dailyforms, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :notifications, foreign_key: :recipient_id, dependent: :destroy
   
   def self.from_omniauth(auth)

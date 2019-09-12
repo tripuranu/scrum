@@ -7,7 +7,7 @@
           = notification.action
           on your dailyform
     - else
-      = link_to edit_dailyform_path(notification.notifiable.date) do
+      = link_to edit_dailyform_path(notification.notifiable.dailyform.date) do
         %p
           = notification.actor.email
           = notification.action

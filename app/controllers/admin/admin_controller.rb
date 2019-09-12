@@ -12,4 +12,5 @@ class Admin::AdminController < ApplicationController
     @notifications = Notification.where(recipient: current_user).last(10)
     @count = Notification.where(recipient: current_user).unread.count
   end
+  
 end

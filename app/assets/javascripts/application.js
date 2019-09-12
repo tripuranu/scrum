@@ -14,6 +14,7 @@
 //= require activestorage
 //= require jquery3
 //= require jquery_ujs
+//= require jquery-ui
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
@@ -55,13 +56,21 @@ $(document).ready(function() {
       $(this).remove;
     })
   },1000);
-    
-  $('button').click(function() {
-    $('#calendar').toggle();
-  });
   
   $('#notifications').click(function() {
     $.get("/notifications/mark_as_read");
+  });
+
+  $( "#datepicker" ).datepicker({
+
+    dateFormat: 'yy-mm-dd',
+    showOn: "button",
+    maxDate: new Date(),
+    buttonText: "<span class='fa fa-calendar'></span>",
+
+    onSelect: function(date, instance) {
+      window.location = "http://localhost:3000/dailyforms/"+date+"/edit";
+    }
   });
     
 });

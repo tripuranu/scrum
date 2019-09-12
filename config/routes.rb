@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :dailyforms do
       resources :comments
     end
+    resources :users
   end
   
   root to: 'home#dashboard'

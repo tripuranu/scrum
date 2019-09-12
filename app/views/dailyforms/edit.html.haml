@@ -1,10 +1,12 @@
 #dailyform
   = render 'dailyforms/date_picker', date: @date
 
-%h2 Scrum
+%h2 
+  Scrum
+  %small.journal__friendly-date.text-muted
 %hr
 
 = render 'form'
 
--if @dailyform.id != nil
+-if @dailyform.comments.count != 0
   = render 'comments/comment'

@@ -4,8 +4,8 @@
     %tr
       %th Email
   %tbody
-    - (@users).each do |user|
+    - (@users - [current_user]).each do |user|
       %tr
         %td= link_to user.email, admin_dailyform_path(user.id)
-
+        %td= link_to fa_icon("trash"), admin_user_path(user), method: :delete, data: { confirm: "Are you sure?" }
 = will_paginate @users
